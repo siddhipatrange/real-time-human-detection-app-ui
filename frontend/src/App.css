@@ -1,0 +1,582 @@
+/* === GLOBAL STYLES === */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif !important;
+  background-color: #fff8f0; /* Light warm background */
+  scroll-behavior: smooth;
+  background-image: url('./assets/bg1.png'); /* Path to your image */
+  background-size: cover; /* Make the background cover the entire page */
+  background-position: center; /* Center the background */
+  background-attachment: fixed; /* Keep it fixed while scrolling */
+  height: 100vh; /* Ensure it spans the entire viewport */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.navbar-brand {
+  color: #FF4500 !important;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.navbar-nav .nav-link {
+  color: #FF4500 !important;
+  margin: 0 10px;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #FF8C00 !important;
+}
+
+.user-name {
+  font-weight: bold;
+  color: #FF8C00;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #FF4500;
+  font-size: 1em;
+}
+
+.dropdown-item:active {
+  background-color: #ffe0b2 !important; /* Light orange */
+  color: #000 !important; /* Ensure text stays readable */
+}
+
+/* === SECTION BLOCKS === */
+.section {
+  padding: 250px 20px;
+  margin: 0;
+  text-align: center;
+  background: transparent;
+}
+
+#features, #contact, #publication {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.section h1 {
+  color: #333;
+}
+
+.section h2 {
+  color: #FF4500;
+  margin-bottom: 20px;
+}
+
+.section p {
+  color: #444;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+.about-section {
+  padding: 100px 20px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.section-title {
+  color: #FF4500;
+  font-weight: bold;
+}
+
+.feature-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.feature-list li {
+  font-size: 1rem;
+  margin-bottom: 16px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  transition: transform 0.3s;
+}
+
+.feature-list li:hover {
+  transform: translateX(8px);
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.animated-icon {
+  color: #FF4500;
+  margin-right: 12px;
+  font-size: 1.2rem;
+  animation: pulse-icon 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-icon {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.video-wrapper {
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.video-wrapper:hover {
+  transform: scale(1.02);
+}
+
+/* === BUTTON STYLES === */
+.btn-primary {
+  background-color: #FF4500 !important;
+  border: none;
+  font-weight: bold;
+  border-color: #FF4500 !important;
+}
+
+.btn-primary:hover {
+  background-color: #FF8C00 !important;
+  border-color: #FF8C00 !important;
+  color: white !important;
+}
+
+.btn-outline-primary {
+  color: #FF4500 !important;
+  border-color: #FF4500 !important;
+  font-weight: bold !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: #FF8C00 !important;
+  color: white !important;
+  border-color: #FF8C00 !important;
+}
+
+.get-started-button {
+  display: inline-block;
+  background-color: #FF4500;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.get-started-button:hover {
+  background-color: #FF8C00;
+}
+
+.btn2 {
+  background-color: #FF4500 !important;
+  border: none;
+  font-weight: bold;
+  color: white !important;
+}
+
+.btn2:hover {
+  background-color: #FF8C00 !important;
+  color: white !important;
+}
+
+/* === AUTH FORMS === */
+.auth-container {
+  width: 320px;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 12px;
+  background: #fff6e6;
+  box-shadow: 0 6px 12px rgba(255, 140, 0, 0.1);
+}
+
+.auth-container h2 {
+  color: #FF4500;
+}
+
+.auth-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.auth-form label {
+  font-weight: 600;
+  color: #FF8C00;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #FFD700;
+  color: #333;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.auth-button:hover {
+  background-color: #FF8C00;
+  color: white;
+}
+
+.switch-auth {
+  margin-top: 15px;
+  color: #FF4500;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* === DASHBOARD / OPTIONS PAGE === */
+.dashboard {
+  padding: 40px;
+  background-color: #fffdf7;
+  text-align: center;
+}
+
+.options-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 5rem auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #FF4500;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.option-button {
+  padding: 0.75rem 1.25rem;
+  background-color: #FF4500;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s ease;
+}
+
+.option-button:hover {
+  background-color: #E03E00;
+  border-color: #000;  /* Ensure black border on hover */
+}
+
+.back-button {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 2px solid black;  /* Black border */
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #f8f8f8;
+  border-color: #000;  /* Ensure black border on hover */
+}
+
+/* === AREA MONITORING PAGES === */
+.upload-card {
+  background-color: #fff8f0;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.upload-card h1 {
+  color: #FF4500;
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  font-weight: bold;
+}
+
+.upload-card p {
+  font-size: 1.05rem;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.file-input {
+  padding: 0.75rem;
+  border: 2px dashed #FF8C00;
+  border-radius: 10px;
+  width: 100%;
+  background-color: #fff;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.3s ease;
+}
+
+.file-input:hover {
+  border-color: #FF4500;
+}
+
+.submit-button {
+  background-color: #FF4500;
+  color: white;
+  padding: 12px 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  border: 2px solid black;  /* Black border */
+  transition: background-color 0.3s, border-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #FF8C00;
+  border-color: #000;  /* Ensure black border on hover */
+}
+
+.loader {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  color: #FF8C00;
+  animation: pulse 1s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* === FOOTER === */
+.footer {
+  background-color: #333; /* Dark background for footer */
+  color: white; /* White text to contrast */
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.footer a {
+  color: #FF4500; /* Add contrast for any links */
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #FFD700; /* Highlight the link when hovered */
+}
+
+
+/* === CONTACT SECTION === */
+#contact {
+  padding: 150px 0;
+  margin-bottom: 0;
+  background-color: transparent; /* Ensure no background */
+}
+
+.contact-left h2 {
+  font-size: 2rem;
+  margin-bottom: 50px;
+  font-weight: 600;
+}
+
+.contact-left p {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.contact-right form input,
+.contact-right form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.contact-right form button {
+  margin-top: 15px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.result {
+  margin-top: 1.5rem;
+  font-weight: 600;
+  color: #28a745;
+}
+
+.section-title {
+  font-weight: bold;
+  color: #FF4500;
+  font-size: 2.2rem;
+}
+
+.feature-card {
+  border-radius: 12px;
+  background: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon i {
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon i {
+  transform: scale(1.2);
+}
+
+.social-icons a {
+  margin-right: 10px;
+  color: #FF4500;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #FF8C00;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.animate-pop {
+  animation: pop 0.35s ease-out;
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.publication-section {
+  color: #333;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  padding: 60px 20px;
+  color: #333;
+}
+
+.publication-section h2 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #FF4500; /* primary theme color */
+  margin-bottom: 20px;
+}
+
+.publication-section ul {
+  padding-left: 20px;
+}
+
+.publication-section li {
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.publication-section a {
+  color: #FF4500;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.publication-section a:hover {
+  text-decoration: underline;
+  color: #FF8C00;
+}
+
+
+/* .cctv-image {
+  width: 200px !important;
+  height: auto !important;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+} */
