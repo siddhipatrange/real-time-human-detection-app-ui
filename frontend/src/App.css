@@ -569,6 +569,45 @@ a {
   color: #FF8C00;
 }
 
+/*============================Emergency button=======================================================*/
+.stop-button {
+  background-color: #ff0000; /* BRIGHT red */
+  color: white;
+  padding: 12px 24px;
+  border: 2px solid black; /* Bold black border */
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4); /* red glow */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.stop-button:hover {
+  background-color: #cc0000; /* deeper red on hover */
+  transform: scale(1.05);
+}
+
+.stop-button:active {
+  transform: scale(0.95);
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.stop-button.blinking {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.stop-button.blinking {
+  animation: blink 1s infinite;
+}
+
 
 /* .cctv-image {
   width: 200px !important;

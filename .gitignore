@@ -1,0 +1,54 @@
+# ==================
+# Global Ignores
+# ==================
+
+# Python
+__pycache__/
+*.py[cod]
+*.env
+*.pkl
+*.h5
+*.keras
+
+# Virtual Environments
+backend/venv/
+
+# Node
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# React & Build
+frontend/.next/
+frontend/dist/
+frontend/build/
+frontend/.cache/
+
+# Local IDE & OS files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ==================
+# Project Specific
+# ==================
+
+# Backend alarm sound & media
+backend/alarm/
+backend/*.mp4
+
+# ML Models
+backend/convlstm_model.h5
+backend/convlstm_model__Date_Time_*.h5
+
+# Environment
+backend/.env
+
+# Frontend media
+frontend/public/alarm/
+frontend/public/*.mp4
+
+# Babel cache
+frontend/node_modules/.cache/

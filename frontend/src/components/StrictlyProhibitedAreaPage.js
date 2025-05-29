@@ -9,6 +9,7 @@ const StrictlyProhibitedAreaPage = () => {
   const [result, setResult] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const [alarmTriggered, setAlarmTriggered] = useState(false);
 
   // Handle video file upload
   const handleUpload = (e) => {
@@ -18,22 +19,52 @@ const StrictlyProhibitedAreaPage = () => {
   };
 
   // Handle video analysis on button click
-  const handleAnalyze = () => {
+  const handleAnalyze = async () => {
     if (!video) {
       toast.error("Please upload a video first!");
       return;
     }
-  
+
     setIsLoading(true);
     setResult('');
-  
-    // Simulate processing
-    setTimeout(() => {
+
+    try {
+      const formData = new FormData();
+      formData.append("video", video);
+
+      console.log("Sending to backend:", video.name);
+
+      const response = await fetch("/strict-analyze", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        toast.error(data.error);
+        setResult("Error analyzing video.");
+      } else {
+        if (data.result && data.result.includes("Human detected")) {
+          setResult(`🚨 ${data.result}`);
+          toast.error("Intrusion in strictly prohibited zone! 🚨");
+          setAlarmTriggered(true);
+          const alarm = new Audio('/alarm/alarm_sound.mp3');
+          alarm.play();
+        } else {
+          setResult(data.result || "No result received.");
+          toast.info("No human detected in video.");
+        }
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Failed to analyze video.");
+      setResult("An error occurred.");
+    } finally {
       setIsLoading(false);
-      setResult('Human detected! Alarm triggered!');
-    }, 2000);
+    }
   };
-  
+
 
   return (
     <div className="container strictly-prohibited-container">
@@ -71,16 +102,34 @@ const StrictlyProhibitedAreaPage = () => {
 
         {/* Button Group */}
         <div className="button-group">
-            <button className="back-button" onClick={() => navigate('/dashboard')}>
-                Back to Options
-            </button>
-            <button
-                className="submit-button"
-                disabled={isLoading}
-                onClick={handleAnalyze}
-            >
+          <button className="back-button" onClick={() => navigate('/dashboard')}>
+            Back to Options
+          </button>
+          <button
+            className="submit-button"
+            disabled={isLoading}
+            onClick={handleAnalyze}
+          >
             {isLoading ? 'Processing...' : 'Analyze Video'}
-            </button>
+          </button>
+          {alarmTriggered && (
+            <div style={{ marginTop: "2rem" }}>
+              <button
+                className="stop-button blinking"
+                onClick={async () => {
+                  try {
+                    await fetch("/stop-alarm", { method: "POST" });
+                    toast.success("Alarm stopped!");
+                    setAlarmTriggered(false); // Hide the button again
+                  } catch (err) {
+                    toast.error("Failed to stop alarm.");
+                  }
+                }}
+              >
+                🚨 Stop Alarm
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -51,7 +51,7 @@ function HomePage() {
       <div className="col-md-7 text-center" data-aos="fade-left">
         <div className="video-wrapper">
           <video width="100%" height="auto" controls className="video-animated">
-            <source src="/demo.mp4" type="video/mp4" />
+            <source src="/M3_video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
